@@ -79,7 +79,7 @@ public class PH36760_xuongOOPJava {
     }
 
     //xuất danh sách animal
-    public void xuanAnimal() {
+    public void xuatAnimal() {
         System.out.println("Xuất danh sách động vật ");
         System.out.println("1. Động vật có vú");
         System.out.println("2. Chim");
@@ -372,49 +372,64 @@ public class PH36760_xuongOOPJava {
         System.out.println("----------- Thông tin động vật -------------");
         switch (chon) {
             case 1:
+
                 Collections.sort(listMammal, new Comparator<Mammal>() {
                     @Override
                     public int compare(Mammal o1, Mammal o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
                     }
                 });
-                this.xuanAnimal();
+                for (Mammal m : listMammal) {
+                    m.xuat();
+                }
                 break;
             case 2:
+
                 Collections.sort(listBird, new Comparator<Bird>() {
                     @Override
                     public int compare(Bird o1, Bird o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
                     }
                 });
-                this.xuanAnimal();
+                for (Bird b : listBird) {
+                    b.xuat();
+                }
                 break;
             case 3:
+
                 Collections.sort(listFish, new Comparator<Fish>() {
                     @Override
                     public int compare(Fish o1, Fish o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
                     }
                 });
-                this.xuanAnimal();
+                for (Fish f : listFish) {
+                    f.xuat();
+                }
                 break;
             case 4:
+
                 Collections.sort(listReptile, new Comparator<Reptile>() {
                     @Override
                     public int compare(Reptile o1, Reptile o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
                     }
                 });
-                this.xuanAnimal();
+                for (Reptile r : listReptile) {
+                    r.xuat();
+                }
                 break;
             case 5:
+
                 Collections.sort(listAmphibians, new Comparator<Amphibians>() {
                     @Override
                     public int compare(Amphibians o1, Amphibians o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
                     }
                 });
-                this.xuanAnimal();
+                for (Amphibians a : listAmphibians) {
+                    a.xuat();
+                }
                 break;
         }
     }

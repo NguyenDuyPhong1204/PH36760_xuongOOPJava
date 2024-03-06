@@ -32,7 +32,7 @@ public class Zoo {
                     oop.nhapAnimal();
                     break;
                 case 2:
-                    oop.xuanAnimal();
+                    oop.xuatAnimal();
                     break;
                 case 3:
                     oop.timAnimal();
