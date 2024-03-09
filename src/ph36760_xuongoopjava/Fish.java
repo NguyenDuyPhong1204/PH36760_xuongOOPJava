@@ -29,24 +29,42 @@ public class Fish extends Animal {
         this.tocDoBoi = tocDoBoi;
     }
 
- public void xuat() {
+    public void xuat() {
         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-2s0 | %-20s | %-20s\n",
-                "Mã động vật", "Tên động vật","Giới tính","Kích thước","Cân nặng","Màu sắc"
-                ,"Thức ăn","Tuổi","Thuộc loài","Tốc độ bơi");
-        
-         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-2s0 | %-20s | %-20ss\n",
-                 getMaDongVat(), getTenDongVat(), getGioiTinh(),getKichThuoc(),getCanNang(),
-                 getMauSac(), getThucAn(), getTuoi(), this.loaiCa, this.tocDoBoi);
+                "Mã động vật", "Tên động vật", "Giới tính", "Kích thước", "Cân nặng", "Màu sắc",
+                 "Thức ăn", "Tuổi", "Thuộc loài", "Tốc độ bơi");
+
+        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-2s0 | %-20s | %-20ss\n",
+                getMaDongVat(), getTenDongVat(), getGioiTinh(), getKichThuoc(), getCanNang(),
+                getMauSac(), getThucAn(), getTuoi(), this.loaiCa, this.tocDoBoi);
     }
 
     @Override
     public void nhap() {
         Scanner sc = new Scanner(System.in);
         super.nhap();
-        System.out.print("Nhập loài cá: ");
-        this.loaiCa = sc.nextLine();
-        System.out.print("Nhập tốc độ bơi: ");
-        this.tocDoBoi = Integer.parseInt(sc.nextLine());
+        // Validate loài cá
+        do {
+            System.out.print("Nhập loài cá: ");
+            loaiCa = sc.nextLine();
+            if (loaiCa.isEmpty()) {
+                System.out.println("Loài cá không được để trống!");
+            }
+        } while (loaiCa.isEmpty());
+
+        // Validate tốc độ bơi
+        do {
+            try {
+                System.out.print("Nhập tốc độ bơi(km/h): ");
+                tocDoBoi = Integer.parseInt(sc.nextLine());
+                if (tocDoBoi <= 0) {
+                    System.out.println("Tốc độ bơi phải là số dương!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Tốc độ bơi phải là số!");
+                tocDoBoi = 0;
+            }
+        } while (tocDoBoi <= 0);
 
     }
 

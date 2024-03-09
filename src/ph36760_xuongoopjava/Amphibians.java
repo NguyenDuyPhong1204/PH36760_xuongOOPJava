@@ -10,8 +10,8 @@ import java.util.Scanner;
  *
  * @author Admin
  */
-public class Amphibians extends Animal{
-    
+public class Amphibians extends Animal {
+
     private String thuocLoai;
     private String moiTruongSong;
 
@@ -29,26 +29,38 @@ public class Amphibians extends Animal{
         this.moiTruongSong = moiTruongSong;
     }
 
-   public void xuat(){
+    public void xuat() {
         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                "Mã động vật", "Tên động vật","Giới tính","Kích thước","Cân nặng","Màu sắc"
-                ,"Thức ăn","Tuổi","Thuộc loài","Môi trường sống");
-        
-         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                 getMaDongVat(), getTenDongVat(), getGioiTinh(),getKichThuoc(),getCanNang(),
-                 getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.moiTruongSong);
-       
-   }
+                "Mã động vật", "Tên động vật", "Giới tính", "Kích thước", "Cân nặng", "Màu sắc",
+                 "Thức ăn", "Tuổi", "Thuộc loài", "Môi trường sống");
+
+        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
+                getMaDongVat(), getTenDongVat(), getGioiTinh(), getKichThuoc(), getCanNang(),
+                getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.moiTruongSong);
+
+    }
 
     @Override
     public void nhap() {
         Scanner sc = new Scanner(System.in);
-        super.nhap(); 
-        System.out.print("Nhập loài: ");
-        this.thuocLoai = sc.nextLine();
-        System.out.print("Nhập môi trường sống: ");
-        this.moiTruongSong = sc.nextLine();
+        super.nhap();
+        // Validate thuộc loài
+        do {
+            System.out.print("Nhập loài: ");
+            thuocLoai = sc.nextLine();
+            if (thuocLoai.isEmpty()) {
+                System.out.println("Loài không được để trống!");
+            }
+        } while (thuocLoai.isEmpty());
+
+        // Validate môi trường sống
+        do {
+            System.out.print("Nhập môi trường sống: ");
+            moiTruongSong = sc.nextLine();
+            if (moiTruongSong.isEmpty()) {
+                System.out.println("Môi trường sống không được để trống!");
+            }
+        } while (moiTruongSong.isEmpty());
     }
-    
-    
+
 }

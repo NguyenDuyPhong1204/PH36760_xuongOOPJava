@@ -10,7 +10,8 @@ import java.util.Scanner;
  *
  * @author Admin
  */
-public class Reptile extends Animal{
+public class Reptile extends Animal {
+
     private String thuocLoai;
     private int kichThuocVay;
     private String loaiVay;
@@ -33,25 +34,49 @@ public class Reptile extends Animal{
 
     public void xuat() {
         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                "Mã động vật", "Tên động vật","Giới tính","Kích thước","Cân nặng","Màu sắc"
-                ,"Thức ăn","Tuổi","Thuộc loài","kích thước vảy", "Loại vảy");
-        
-         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                 getMaDongVat(), getTenDongVat(), getGioiTinh(),getKichThuoc(),getCanNang(),
-                 getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.kichThuocVay, this.loaiVay);
+                "Mã động vật", "Tên động vật", "Giới tính", "Kích thước", "Cân nặng", "Màu sắc",
+                 "Thức ăn", "Tuổi", "Thuộc loài", "kích thước vảy", "Loại vảy");
+
+        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
+                getMaDongVat(), getTenDongVat(), getGioiTinh(), getKichThuoc(), getCanNang(),
+                getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.kichThuocVay, this.loaiVay);
     }
 
     @Override
     public void nhap() {
         Scanner sc = new Scanner(System.in);
-        super.nhap(); 
-        System.out.print("Nhập loài: ");
-        this.thuocLoai = sc.nextLine();
-        System.out.print("Nhập loại vẩy: ");
-        this.loaiVay = sc.nextLine();
-        System.out.print("Nhập kích thước vẩy: ");
-        this.kichThuocVay = Integer.parseInt(sc.nextLine());
+        super.nhap();
+        // Validate thuộc loài
+        do {
+            System.out.print("Nhập loài: ");
+            thuocLoai = sc.nextLine();
+            if (thuocLoai.isEmpty()) {
+                System.out.println("Loài không được để trống!");
+            }
+        } while (thuocLoai.isEmpty());
+
+        // Validate loại vẩy
+        do {
+            System.out.print("Nhập loại vẩy: ");
+            loaiVay = sc.nextLine();
+            if (loaiVay.isEmpty()) {
+                System.out.println("Loại vẩy không được để trống!");
+            }
+        } while (loaiVay.isEmpty());
+
+        // Validate kích thước vẩy
+        do {
+            try {
+                System.out.print("Nhập kích thước vẩy: ");
+                kichThuocVay = Integer.parseInt(sc.nextLine());
+                if (kichThuocVay <= 0) {
+                    System.out.println("Kích thước vẩy phải là số dương!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Kích thước vẩy phải là số!");
+                kichThuocVay = 0;
+            }
+        } while (kichThuocVay <= 0);
     }
-    
-    
+
 }

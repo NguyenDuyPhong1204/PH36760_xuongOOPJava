@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Admin
  */
-public class Mammal extends Animal{
+public class Mammal extends Animal {
 
     private String thuocLoai;
     private int soLuongDe;
@@ -44,21 +44,37 @@ public class Mammal extends Animal{
     public void nhap() {
         Scanner sc = new Scanner(System.in);
         super.nhap();
-        System.out.print("Thuộc loài: ");
-        this.thuocLoai = sc.nextLine();
-        System.out.print("Số lượng đẻ trong 1 lứa: ");
-        this.soLuongDe = Integer.parseInt(sc.nextLine());
+        do {
+            System.out.print("Thuộc loài: ");
+            thuocLoai = sc.nextLine();
+            if (thuocLoai.isEmpty()) {
+                System.out.println("Thuộc loài không được để trống!");
+            }
+        } while (thuocLoai.isEmpty());
+
+// Validate số lượng đẻ
+        do {
+            try {
+                System.out.print("Số lượng đẻ trong 1 lứa: ");
+                soLuongDe = Integer.parseInt(sc.nextLine());
+                if (soLuongDe <= 0) {
+                    System.out.println("Số lượng đẻ phải là số dương!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Số lượng đẻ phải là số!");
+                soLuongDe = 0;
+            }
+        } while (soLuongDe <= 0);
     }
 
-    
     public void xuat() {
         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                "Mã động vật", "Tên động vật","Giới tính","Kích thước","Cân nặng","Màu sắc"
-                ,"Thức ăn","Tuổi","Thuộc loài","Số lượng đẻ", "Tuổi sinh sản");
-        
-         System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
-                 getMaDongVat(), getTenDongVat(), getGioiTinh(),getKichThuoc(),getCanNang(),
-                 getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.soLuongDe, tuoiSinhSan());
+                "Mã động vật", "Tên động vật", "Giới tính", "Kích thước", "Cân nặng", "Màu sắc",
+                 "Thức ăn", "Tuổi", "Thuộc loài", "Số lượng đẻ", "Tuổi sinh sản");
+
+        System.out.printf("| %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s | %-20s\n",
+                getMaDongVat(), getTenDongVat(), getGioiTinh(), getKichThuoc(), getCanNang(),
+                getMauSac(), getThucAn(), getTuoi(), this.thuocLoai, this.soLuongDe, tuoiSinhSan());
     }
 
     public String tuoiSinhSan() {

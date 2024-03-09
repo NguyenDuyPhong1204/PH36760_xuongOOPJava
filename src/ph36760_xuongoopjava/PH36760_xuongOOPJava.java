@@ -35,10 +35,8 @@ public class PH36760_xuongOOPJava {
         System.out.println("5. Lưỡng cư");
         System.out.print("Mời chọn động vật muốn nhập: ");
         int chon = Integer.parseInt(sc.nextLine());
-
         switch (chon) {
             case 1:
-
                 Mammal mammal = new Mammal();
                 mammal.nhap();
                 listAnimal.add(mammal);
@@ -145,8 +143,15 @@ public class PH36760_xuongOOPJava {
         System.out.println("5. Lưỡng cư");
         System.out.print("Mời nhập động vật bạn muốn tìm: ");
         chon = Integer.parseInt(sc.nextLine());
-        System.out.print("Mời nhập mã động vật bạn muốn tìm: ");
+
         String maAnimal = sc.nextLine();
+        do {
+            System.out.print("Mời nhập mã động vật bạn muốn tìm: ");
+            maAnimal = sc.nextLine();
+            if (maAnimal.isEmpty()) {
+                System.out.println("Vui lòng nhập lại mã!");
+            }
+        } while (maAnimal.isEmpty());
         System.out.println("----------- Thông tin động vật -------------");
         switch (chon) {
             case 1:
@@ -188,6 +193,72 @@ public class PH36760_xuongOOPJava {
 
     }
 
+    public void timTheoKhoangCan() {
+        int chon;
+        System.out.println("Chọn động vật bạn muốn tìm ");
+        System.out.println("1. Động vật có vú");
+        System.out.println("2. Chim");
+        System.out.println("3. Cá");
+        System.out.println("4. Bò sát");
+        System.out.println("5. Lưỡng cư");
+        System.out.print("Mời nhập động vật bạn muốn tìm: ");
+        chon = Integer.parseInt(sc.nextLine());
+        System.out.print("Mời nhập khoảng cân động vật bạn muốn tìm\n");
+        System.out.print("Cân nặng bắt đầu (kg): ");
+        int canNang1 = Integer.parseInt(sc.nextLine());
+        System.out.print("Cân nặng kết thúc (kg): ");
+        int canNang2 = Integer.parseInt(sc.nextLine());
+        int check = 0;
+        System.out.println("----------- Thông tin động vật -------------");
+        switch (chon) {
+            case 1:
+                for (Mammal s : listMammal) {
+                    if (s.getCanNang() >= canNang1 && s.getCanNang() <= canNang2) {
+                        check++;
+                        s.xuat();
+                    }
+                }
+                break;
+            case 2:
+                for (Bird s : listBird) {
+                    if (s.getCanNang() >= canNang1 && s.getCanNang() <= canNang2) {
+                        check++;
+                        s.xuat();
+
+                    }
+                }
+                break;
+            case 3:
+                for (Fish s : listFish) {
+                    if (s.getCanNang() >= canNang1 && s.getCanNang() <= canNang2) {
+                        check++;
+                        s.xuat();
+
+                    }
+                }
+                break;
+            case 4:
+                for (Reptile s : listReptile) {
+                    if (s.getCanNang() >= canNang1 && s.getCanNang() <= canNang2) {
+                        check++;
+                        s.xuat();
+
+                    }
+                }
+                break;
+            case 5:
+                for (Amphibians s : listAmphibians) {
+                    if (s.getCanNang() >= canNang1 && s.getCanNang() <= canNang2) {
+                        check++;
+                        s.xuat();
+
+                    }
+                }
+                break;
+        }
+
+    }
+
     //xoá động vật theo mã
     public void xoaAnimal() {
         int chon;
@@ -199,8 +270,14 @@ public class PH36760_xuongOOPJava {
         System.out.println("5. Lưỡng cư");
         System.out.print("Mời nhập động vật bạn muốn xoá: ");
         chon = Integer.parseInt(sc.nextLine());
-        System.out.print("Mời nhập mã động vật bạn muốn xoá: ");
         String maAnimal = sc.nextLine();
+        do {
+            System.out.print("Mời nhập mã động vật bạn muốn xoá: ");
+            maAnimal = sc.nextLine();
+            if (maAnimal.isEmpty()) {
+                System.out.println("Vui lòng nhập lại mã!");
+            }
+        } while (maAnimal.isEmpty());
         System.out.println("----------- Thông tin động vật -------------");
         switch (chon) {
             case 1:
@@ -210,8 +287,10 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
                             listMammal.remove(s);
+                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                 }
@@ -223,8 +302,10 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
                             listBird.remove(s);
+                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                 }
@@ -237,8 +318,10 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
                             listFish.remove(s);
+                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                 }
@@ -251,8 +334,10 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
                             listReptile.remove(s);
+                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                 }
@@ -263,10 +348,12 @@ public class PH36760_xuongOOPJava {
                         s.xuat();
                         s.xuat();
                         String xacNhan;
-                        System.out.print("Bạn có muốn xoá không (Y/N)?: ");
+                        System.out.print("Bạn có muốn xoá không (y/n)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
                             listAmphibians.remove(s);
+                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            break;
                         }
                     }
                 }
@@ -357,7 +444,7 @@ public class PH36760_xuongOOPJava {
 
     }
 
-    //sắp xếp
+    //sắp xếp theo tên
     public void sapXepAnimal() {
         int chon;
         System.out.println("Chọn động vật bạn muốn xem ");
@@ -368,7 +455,6 @@ public class PH36760_xuongOOPJava {
         System.out.println("5. Lưỡng cư");
         System.out.print("Mời nhập động vật bạn muốn xem: ");
         chon = Integer.parseInt(sc.nextLine());
-        String maAnimal = sc.nextLine();
         System.out.println("----------- Thông tin động vật -------------");
         switch (chon) {
             case 1:
@@ -425,6 +511,157 @@ public class PH36760_xuongOOPJava {
                     @Override
                     public int compare(Amphibians o1, Amphibians o2) {
                         return o1.getTenDongVat().compareToIgnoreCase(o2.getTenDongVat());
+                    }
+                });
+                for (Amphibians a : listAmphibians) {
+                    a.xuat();
+                }
+                break;
+        }
+    }
+
+    //sắp xếp theo kích thước
+    public void sapXepTheoKichThuoc() {
+        int chon;
+        System.out.println("Chọn động vật bạn muốn xem ");
+        System.out.println("1. Động vật có vú");
+        System.out.println("2. Chim");
+        System.out.println("3. Cá");
+        System.out.println("4. Bò sát");
+        System.out.println("5. Lưỡng cư");
+        System.out.print("Mời nhập động vật bạn muốn xem: ");
+        chon = Integer.parseInt(sc.nextLine());
+
+        System.out.println("----------- Thông tin động vật -------------");
+        switch (chon) {
+            case 1:
+                Collections.sort(listMammal, new Comparator<Mammal>() {
+                    @Override
+                    public int compare(Mammal o1, Mammal o2) {
+                        return o1.getKichThuoc() - o2.getKichThuoc();
+                    }
+                });
+                for (Mammal m : listMammal) {
+                    m.xuat();
+                }
+                break;
+            case 2:
+
+                Collections.sort(listBird, new Comparator<Bird>() {
+                    @Override
+                    public int compare(Bird o1, Bird o2) {
+                        return o1.getKichThuoc() - o2.getKichThuoc();
+                    }
+                });
+                for (Bird b : listBird) {
+                    b.xuat();
+                }
+                break;
+            case 3:
+
+                Collections.sort(listFish, new Comparator<Fish>() {
+                    @Override
+                    public int compare(Fish o1, Fish o2) {
+                        return o1.getKichThuoc() - o2.getKichThuoc();
+                    }
+                });
+                for (Fish f : listFish) {
+                    f.xuat();
+                }
+                break;
+            case 4:
+
+                Collections.sort(listReptile, new Comparator<Reptile>() {
+                    @Override
+                    public int compare(Reptile o1, Reptile o2) {
+                        return o1.getKichThuoc() - o2.getKichThuoc();
+                    }
+                });
+                for (Reptile r : listReptile) {
+                    r.xuat();
+                }
+                break;
+            case 5:
+
+                Collections.sort(listAmphibians, new Comparator<Amphibians>() {
+                    @Override
+                    public int compare(Amphibians o1, Amphibians o2) {
+                        return o1.getKichThuoc() - o2.getKichThuoc();
+                    }
+                });
+                for (Amphibians a : listAmphibians) {
+                    a.xuat();
+                }
+                break;
+        }
+    }
+
+    public void sapXepTheoCanNang() {
+        int chon;
+        System.out.println("Chọn động vật bạn muốn xem ");
+        System.out.println("1. Động vật có vú");
+        System.out.println("2. Chim");
+        System.out.println("3. Cá");
+        System.out.println("4. Bò sát");
+        System.out.println("5. Lưỡng cư");
+        System.out.print("Mời nhập động vật bạn muốn xem: ");
+        chon = Integer.parseInt(sc.nextLine());
+
+        System.out.println("----------- Thông tin động vật -------------");
+        switch (chon) {
+            case 1:
+                Collections.sort(listMammal, new Comparator<Mammal>() {
+                    @Override
+                    public int compare(Mammal o1, Mammal o2) {
+                        return o1.getCanNang() - o2.getCanNang();
+                    }
+                });
+                for (Mammal m : listMammal) {
+                    m.xuat();
+                }
+                break;
+            case 2:
+
+                Collections.sort(listBird, new Comparator<Bird>() {
+                    @Override
+                    public int compare(Bird o1, Bird o2) {
+                        return o1.getCanNang() - o2.getCanNang();
+                    }
+                });
+                for (Bird b : listBird) {
+                    b.xuat();
+                }
+                break;
+            case 3:
+
+                Collections.sort(listFish, new Comparator<Fish>() {
+                    @Override
+                    public int compare(Fish o1, Fish o2) {
+                        return o1.getCanNang() - o2.getCanNang();
+                    }
+                });
+                for (Fish f : listFish) {
+                    f.xuat();
+                }
+                break;
+            case 4:
+
+                Collections.sort(listReptile, new Comparator<Reptile>() {
+                    @Override
+                    public int compare(Reptile o1, Reptile o2) {
+                        return o1.getCanNang() - o2.getCanNang();
+                    }
+                });
+                for (Reptile r : listReptile) {
+                    r.xuat();
+                }
+                break;
+            case 5:
+
+                Collections.sort(listAmphibians, new Comparator<Amphibians>() {
+                    @Override
+                    public int compare(Amphibians o1, Amphibians o2) {
+                        return o1.getCanNang() - o2.getCanNang();
                     }
                 });
                 for (Amphibians a : listAmphibians) {
