@@ -265,12 +265,12 @@ public class PH36760_xuongOOPJava {
         System.out.println("Chọn động vật bạn xoá ");
         System.out.println("1. Động vật có vú");
         System.out.println("2. Chim");
-        System.out.println("3. Cá");
+        System.out.println( "3. Cá");
         System.out.println("4. Bò sát");
         System.out.println("5. Lưỡng cư");
         System.out.print("Mời nhập động vật bạn muốn xoá: ");
         chon = Integer.parseInt(sc.nextLine());
-        String maAnimal = sc.nextLine();
+        String maAnimal;
         do {
             System.out.print("Mời nhập mã động vật bạn muốn xoá: ");
             maAnimal = sc.nextLine();
@@ -287,9 +287,9 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y")) {
                             listMammal.remove(s);
-                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            System.out.println("Xoá thành công");
                             break;
                         }
                     }
@@ -302,11 +302,11 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y")) {
                             listBird.remove(s);
-                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            System.out.println("Xoá thành công");
                             break;
-                        }
+                        } 
                     }
                 }
                 break;
@@ -318,11 +318,11 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y")) {
                             listFish.remove(s);
-                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            System.out.println("Xoá thành công");
                             break;
-                        }
+                        } 
                     }
                 }
                 break;
@@ -334,11 +334,11 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (Y/N)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y")) {
                             listReptile.remove(s);
-                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            System.out.println("Xoá thành công");
                             break;
-                        }
+                        } 
                     }
                 }
                 break;
@@ -350,11 +350,11 @@ public class PH36760_xuongOOPJava {
                         String xacNhan;
                         System.out.print("Bạn có muốn xoá không (y/n)?: ");
                         xacNhan = sc.nextLine();
-                        if (xacNhan.equalsIgnoreCase("y") || xacNhan.equalsIgnoreCase("Y")) {
+                        if (xacNhan.equalsIgnoreCase("y")) {
                             listAmphibians.remove(s);
-                        } else if (xacNhan.equalsIgnoreCase("n") || xacNhan.equalsIgnoreCase("N")) {
+                            System.out.println("Xoá thành công");
                             break;
-                        }
+                        } 
                     }
                 }
                 break;

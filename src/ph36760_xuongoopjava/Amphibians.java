@@ -47,20 +47,20 @@ public class Amphibians extends Animal {
         // Validate thuộc loài
         do {
             System.out.print("Nhập loài: ");
-            thuocLoai = sc.nextLine();
-            if (thuocLoai.isEmpty()) {
+            this.thuocLoai = sc.nextLine();
+            if (this.thuocLoai.isEmpty()) {
                 System.out.println("Loài không được để trống!");
             }
-        } while (thuocLoai.isEmpty());
+        } while (this.thuocLoai.isEmpty());
 
         // Validate môi trường sống
         do {
             System.out.print("Nhập môi trường sống: ");
-            moiTruongSong = sc.nextLine();
-            if (moiTruongSong.isEmpty()) {
+            this.moiTruongSong = sc.nextLine();
+            if (this.moiTruongSong.isEmpty()) {
                 System.out.println("Môi trường sống không được để trống!");
             }
-        } while (moiTruongSong.isEmpty());
+        } while (this.moiTruongSong.isEmpty());
     }
 
 }

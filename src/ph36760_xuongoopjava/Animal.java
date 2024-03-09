@@ -117,95 +117,95 @@ public class Animal {
 //        this.thucAn = sc.nextLine();
 //        System.out.print("Nhập tuổi của động vật: ");
 //        this.tuoi = Integer.parseInt(sc.nextLine());
-        String maDongVat, tenDongVat, gioiTinh, mauSac, thucAn;
-        int kichThuoc, canNang, tuoi;
+//        String maDongVat, tenDongVat, gioiTinh, mauSac, thucAn;
+//        int kichThuoc, canNang, tuoi;
 
         // Validate mã động vật
         do {
             System.out.print("Nhập mã động vật: ");
-            maDongVat = sc.nextLine();
-            if (maDongVat.isEmpty()) {
+            this.maDongVat = sc.nextLine();
+            if (this.maDongVat.isEmpty()) {
                 System.out.println("Mã động vật không được để trống!");
             }
-        } while (maDongVat.isEmpty());
+        } while (this.maDongVat.isEmpty());
 
         // Validate tên động vật
         do {
             System.out.print("Nhập tên của động vật: ");
-            tenDongVat = sc.nextLine();
-            if (tenDongVat.isEmpty()) {
+            this.tenDongVat = sc.nextLine();
+            if (this.tenDongVat.isEmpty()) {
                 System.out.println("Tên động vật không được để trống!");
             }
-        } while (tenDongVat.isEmpty());
+        } while (this.tenDongVat.isEmpty());
 
         // Validate giới tính động vật
         do {
             System.out.print("Nhập giới tính của động vật: ");
-            gioiTinh = sc.nextLine();
-            if (gioiTinh.isEmpty()) {
+            this.gioiTinh = sc.nextLine();
+            if (this.gioiTinh.isEmpty()) {
                 System.out.println("Giới tính động vật không được để trống!");
             }
-        } while (gioiTinh.isEmpty());
+        } while (this.gioiTinh.isEmpty());
 
         // Validate kích thước động vật
         do {
             try {
                 System.out.print("Nhập kích thước của động vật: ");
-                kichThuoc = Integer.parseInt(sc.nextLine());
-                if (kichThuoc <= 0) {
+                this.kichThuoc = Integer.parseInt(sc.nextLine());
+                if (this.kichThuoc <= 0) {
                     System.out.println("Kích thước động vật phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Kích thước động vật phải là số!");
-                kichThuoc = 0;
+                this.kichThuoc = 0;
             }
-        } while (kichThuoc <= 0);
+        } while (this.kichThuoc <= 0);
 
         // Validate cân nặng động vật
         do {
             try {
                 System.out.print("Nhập cân nặng của động vật: ");
-                canNang = Integer.parseInt(sc.nextLine());
-                if (canNang <= 0) {
+                this.canNang = Integer.parseInt(sc.nextLine());
+                if (this.canNang <= 0) {
                     System.out.println("Cân nặng động vật phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Cân nặng động vật phải là số!");
-                canNang = 0;
+                this.canNang = 0;
             }
-        } while (canNang <= 0);
+        } while (this.canNang <= 0);
 
         // Validate màu sắc động vật
         do {
             System.out.print("Nhập màu sắc của động vật: ");
-            mauSac = sc.nextLine();
-            if (mauSac.isEmpty()) {
+            this.mauSac = sc.nextLine();
+            if (this.mauSac.isEmpty()) {
                 System.out.println("Màu sắc động vật không được để trống!");
             }
-        } while (mauSac.isEmpty());
+        } while (this.mauSac.isEmpty());
 
         // Validate thức ăn của động vật
         do {
             System.out.print("Nhập thức ăn của động vật: ");
-            thucAn = sc.nextLine();
-            if (thucAn.isEmpty()) {
+            this.thucAn = sc.nextLine();
+            if (this.thucAn.isEmpty()) {
                 System.out.println("Thức ăn của động vật không được để trống!");
             }
-        } while (thucAn.isEmpty());
+        } while (this.thucAn.isEmpty());
 
         // Validate tuổi động vật
         do {
             try {
                 System.out.print("Nhập tuổi của động vật: ");
-                tuoi = Integer.parseInt(sc.nextLine());
-                if (tuoi <= 0) {
+                this.tuoi = Integer.parseInt(sc.nextLine());
+                if (this.tuoi <= 0) {
                     System.out.println("Tuổi động vật phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Tuổi động vật phải là số!");
                 tuoi = 0;
             }
-        } while (tuoi <= 0);
+        } while (this.tuoi <= 0);
     }
 
     ;

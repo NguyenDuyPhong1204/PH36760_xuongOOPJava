@@ -46,25 +46,25 @@ public class Mammal extends Animal {
         super.nhap();
         do {
             System.out.print("Thuộc loài: ");
-            thuocLoai = sc.nextLine();
-            if (thuocLoai.isEmpty()) {
+            this.thuocLoai = sc.nextLine();
+            if (this.thuocLoai.isEmpty()) {
                 System.out.println("Thuộc loài không được để trống!");
             }
-        } while (thuocLoai.isEmpty());
+        } while (this.thuocLoai.isEmpty());
 
 // Validate số lượng đẻ
         do {
             try {
                 System.out.print("Số lượng đẻ trong 1 lứa: ");
-                soLuongDe = Integer.parseInt(sc.nextLine());
-                if (soLuongDe <= 0) {
+                this.soLuongDe = Integer.parseInt(sc.nextLine());
+                if (this.soLuongDe <= 0) {
                     System.out.println("Số lượng đẻ phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Số lượng đẻ phải là số!");
-                soLuongDe = 0;
+                this.soLuongDe = 0;
             }
-        } while (soLuongDe <= 0);
+        } while (this.soLuongDe <= 0);
     }
 
     public void xuat() {

@@ -46,25 +46,25 @@ public class Fish extends Animal {
         // Validate loài cá
         do {
             System.out.print("Nhập loài cá: ");
-            loaiCa = sc.nextLine();
+            this.loaiCa = sc.nextLine();
             if (loaiCa.isEmpty()) {
                 System.out.println("Loài cá không được để trống!");
             }
-        } while (loaiCa.isEmpty());
+        } while (this.loaiCa.isEmpty());
 
         // Validate tốc độ bơi
         do {
             try {
                 System.out.print("Nhập tốc độ bơi(km/h): ");
-                tocDoBoi = Integer.parseInt(sc.nextLine());
-                if (tocDoBoi <= 0) {
+                this.tocDoBoi = Integer.parseInt(sc.nextLine());
+                if (this.tocDoBoi <= 0) {
                     System.out.println("Tốc độ bơi phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Tốc độ bơi phải là số!");
-                tocDoBoi = 0;
+                this.tocDoBoi = 0;
             }
-        } while (tocDoBoi <= 0);
+        } while (this.tocDoBoi <= 0);
 
     }
 

@@ -52,43 +52,43 @@ public class Bird extends Animal {
         // Validate loài chim
         do {
             System.out.print("Nhập loài chim: ");
-            loaiChim = sc.nextLine();
-            if (loaiChim.isEmpty()) {
+            this.loaiChim = sc.nextLine();
+            if (this.loaiChim.isEmpty()) {
                 System.out.println("Loài chim không được để trống!");
             }
-        } while (loaiChim.isEmpty());
+        } while (this.loaiChim.isEmpty());
 
         // Validate kích thước cánh
         do {
             try {
                 System.out.print("Nhập kích thước cánh (cm): ");
-                kichThuocCanh = Integer.parseInt(sc.nextLine());
-                if (kichThuocCanh <= 0) {
+                this.kichThuocCanh = Integer.parseInt(sc.nextLine());
+                if (this.kichThuocCanh <= 0) {
                     System.out.println("Kích thước cánh phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Kích thước cánh phải là số!");
-                kichThuocCanh = 0;
+                this.kichThuocCanh = 0;
             }
-        } while (kichThuocCanh <= 0);
+        } while (this.kichThuocCanh <= 0);
 
         // Validate khả năng hót
         do {
             System.out.print("Khả năng hót: ");
-            khaNangHot = sc.nextLine();
-            if (khaNangHot.isEmpty()) {
+            this.khaNangHot = sc.nextLine();
+            if (this.khaNangHot.isEmpty()) {
                 System.out.println("Khả năng hót không được để trống");
             }
-        } while (khaNangHot.isEmpty());
+        } while (this.khaNangHot.isEmpty());
         
         //Validate khả năng bay 
           do {
             System.out.print("Khả năng bay: ");
-            khaNangBay = sc.nextLine();
-            if (khaNangBay.isEmpty()) {
+            this.khaNangBay = sc.nextLine();
+            if (this.khaNangBay.isEmpty()) {
                 System.out.println("Khả năng bay không được để trống");
             }
-        } while (khaNangHot.isEmpty());
+        } while (this.khaNangHot.isEmpty());
     }
 
 }

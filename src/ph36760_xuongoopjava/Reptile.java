@@ -49,34 +49,34 @@ public class Reptile extends Animal {
         // Validate thuộc loài
         do {
             System.out.print("Nhập loài: ");
-            thuocLoai = sc.nextLine();
-            if (thuocLoai.isEmpty()) {
+            this.thuocLoai = sc.nextLine();
+            if (this.thuocLoai.isEmpty()) {
                 System.out.println("Loài không được để trống!");
             }
-        } while (thuocLoai.isEmpty());
+        } while (this.thuocLoai.isEmpty());
 
         // Validate loại vẩy
         do {
             System.out.print("Nhập loại vẩy: ");
-            loaiVay = sc.nextLine();
-            if (loaiVay.isEmpty()) {
+            this.loaiVay = sc.nextLine();
+            if (this.loaiVay.isEmpty()) {
                 System.out.println("Loại vẩy không được để trống!");
             }
-        } while (loaiVay.isEmpty());
+        } while (this.loaiVay.isEmpty());
 
         // Validate kích thước vẩy
         do {
             try {
                 System.out.print("Nhập kích thước vẩy: ");
-                kichThuocVay = Integer.parseInt(sc.nextLine());
-                if (kichThuocVay <= 0) {
+                this.kichThuocVay = Integer.parseInt(sc.nextLine());
+                if (this.kichThuocVay <= 0) {
                     System.out.println("Kích thước vẩy phải là số dương!");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Kích thước vẩy phải là số!");
-                kichThuocVay = 0;
+                this.kichThuocVay = 0;
             }
-        } while (kichThuocVay <= 0);
+        } while (this.kichThuocVay <= 0);
     }
 
 }
